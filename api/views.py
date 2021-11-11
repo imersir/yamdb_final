@@ -36,9 +36,7 @@ def create_jwt(email):
     secret_key = settings.SECRET_KEY
     expire = dt.datetime.utcnow() + settings.EMAIL_EXPIRATION_TIME
     payload = {'email': email, 'exp': expire}
-    signed_token = jwt.encode(payload=payload, key=secret_key,
-                              algorithm='HS256')
-    return signed_token
+    return jwt.encode(payload=payload, key=secret_key, algorithm='HS256')
 
 
 @api_view(('POST',))
