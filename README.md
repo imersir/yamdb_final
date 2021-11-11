@@ -64,12 +64,12 @@ scp nginx.conf <username>@<host>:/home/<username>/nginx.conf
      - Сборка и публикация образа на DockerHub.
      - Деплой на боевой сервер.
      - Отправка уведомления в телеграм.  
-  
-* На сервере соберите docker-compose:
-```
-sudo docker-compose up -d --build
-```
+
 * После успешной сборки на сервере выполните команды (только после первого деплоя):
+    - Запустите образ
+    ```
+    - sudo docker-compose up
+    ```
     - Соберите статические файлы:
     ```
     sudo docker-compose exec backend python manage.py collectstatic --noinput
