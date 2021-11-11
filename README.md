@@ -1,6 +1,6 @@
 ![example workflow](https://github.com/imersir/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 
-###API_YAMDB - базы отзывов о фильмах, книгах и музыке.
+### API_YAMDB - базы отзывов о фильмах, книгах и музыке.
 
 ## Подготовка и запуск проекта
 ### Склонировать репозиторий
