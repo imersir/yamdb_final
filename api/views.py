@@ -1,6 +1,9 @@
 import datetime as dt
 
 import jwt
+from django.conf import settings
+from django.core.mail import send_mail
+from django.db.models import Avg
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import mixins, status, viewsets
 from rest_framework.decorators import action, api_view, permission_classes
@@ -9,21 +12,16 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import AccessToken
 
-from django.conf import settings
-from django.core.mail import send_mail
-from django.db.models import Avg
-from django.shortcuts import get_object_or_404
-
 from .filters import TitlesFilter
-from .models import Category, Genre, Title, Review, User
-from .permissions import (
-    IsAdmin, IsAdminOrReadOnly, IsStaffOrAuthorOrReadOnly, HasUsernameForPOST
-)
-from .serializers import (
-    CategoriesSerializer, CommentsSerializer, GenresSerializer,
-    ReviewsSerializer, SendConfirmCodeSerializer, TitlesSafeMethodSerializer,
-    TitlesUnSafeMethodSerializer, TokenReceiveSerializer, UserSerializer
-)
+from .models import Category, Genre, Review, Title, User
+from .permissions import (HasUsernameForPOST, IsAdmin, IsAdminOrReadOnly,
+                          IsStaffOrAuthorOrReadOnly)
+from .serializers import (CategoriesSerializer, CommentsSerializer,
+                          GenresSerializer, ReviewsSerializer,
+                          SendConfirmCodeSerializer,
+                          TitlesSafeMethodSerializer,
+                          TitlesUnSafeMethodSerializer, TokenReceiveSerializer,
+                          UserSerializer)
 
 MAIL_SUBJECT = 'Код подтверждения'
 MAIL_DESCRIPTION = ('Для получения токена отправьте email и confirmation_code'

@@ -1,7 +1,6 @@
 import jwt
-from rest_framework import serializers
-
 from django.conf import settings
+from rest_framework import serializers
 
 from .models import Category, Comment, Genre, Review, Title, User
 
