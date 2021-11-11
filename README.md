@@ -9,7 +9,9 @@ git clone https://github.com/imersir/yamdb_final.git
 ```
 ## Для работы с удаленным сервером (на ubuntu):
 * Выполните вход на свой удаленный сервер
-
+```
+ssh <username>@<host>
+```
 * Установите docker на сервер:
 ```
 sudo apt install docker.io 
